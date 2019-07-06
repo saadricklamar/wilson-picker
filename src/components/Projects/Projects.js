@@ -1,8 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Projects.scss';
 
-const Projects = () => {
-    return (<div id='projects-section'></div>)
+class Projects extends Component {
+    constructor() {
+        super()
+        this.state = {
+          projects: [],
+          title: ''
+        }
+    }
+
+    handleTitleChange = e => {
+        const {value}  = e.target;
+        this.setState({title: value})
+    }
+
+    generateProject = e => {
+        e.preventDefault();
+        let newProject = {}
+        newProject.title = this.state.title
+        let projects = [...this.state.projects, newProject]
+        this.setState({projects})
+        this.refs.title.value = '';
+    }
+
+
+    render() {
+        console.log(this.state.projects)
+        return (
+            <div id='projects-section'>
+                <nav>
+                <h2>Name Your Project</h2>
+                <form onSubmit={this.generateProject}>
+                    <input ref ='title' name='title' type='text' onChange={this.handleTitleChange} placeholder='Project Title...'/>
+                    <button>Save</button>
+                </form>
+                </nav>
+                <main>
+                    {this.state.projects.length ? this.state.projects.map(project => {
+                        return(<article>{project.title}</article>)
+                    }) : null }
+                </main>
+            </div>
+        )
+    }
+    
 
 }
 

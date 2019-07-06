@@ -39,7 +39,7 @@ class App extends Component  {
         <header>
           <h1>Wilson Picker</h1>
           <nav>
-            <button onClick={() => this.generateColors()}>Generate a Palette</button>
+            <button className='home-button' onClick={() => this.generateColors()}>Generate a Palette</button>
             <Link
               activeClass="active"
               to="projects-section"
@@ -47,7 +47,7 @@ class App extends Component  {
               smooth={true}
               duration= {10}
             >
-            <button>Create a Project</button>
+            <button className='home-button'>Create a Project</button>
             </Link>
           </nav>
         </header>
