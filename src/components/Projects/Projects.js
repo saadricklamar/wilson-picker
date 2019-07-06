@@ -26,7 +26,6 @@ class Projects extends Component {
 
 
     render() {
-        console.log(this.state.projects)
         return (
             <div id='projects-section'>
                 <nav>
@@ -38,14 +37,15 @@ class Projects extends Component {
                 </nav>
                 <main>
                     {this.state.projects.length ? this.state.projects.map(project => {
-                        return(<article>{project.title}</article>)
+                        return( <article>
+                                    <h3> {project.title}</h3>
+                                    <button><i class="fas fa-plus"></i></button>
+                                </article>)
                     }) : null }
                 </main>
             </div>
         )
     }
-    
-
 }
 
 

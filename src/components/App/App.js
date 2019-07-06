@@ -41,8 +41,8 @@ class App extends Component  {
           <nav>
             <button className='home-button' onClick={() => this.generateColors()}>Generate a Palette</button>
             <Link
-              activeClass="active"
-              to="projects-section"
+              activeClass='active'
+              to='projects-section'
               spy={true}
               smooth={true}
               duration= {10}
