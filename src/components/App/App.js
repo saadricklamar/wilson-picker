@@ -42,11 +42,15 @@ class App extends Component  {
           </nav>
         </header>
         <div className='fences'>
+          {this.state.colors.map(hex => {
+            console.log(typeof hex)
+            return (<div key={hex} className='fence' style={{backgroundColor: hex}}><i className="fas fa-unlock-alt"></i></div>)
+          })}
+          {/* <div className='fence'><i class="fas fa-unlock-alt"></i></div>
           <div className='fence'><i class="fas fa-unlock-alt"></i></div>
           <div className='fence'><i class="fas fa-unlock-alt"></i></div>
           <div className='fence'><i class="fas fa-unlock-alt"></i></div>
-          <div className='fence'><i class="fas fa-unlock-alt"></i></div>
-          <div className='fence'><i class="fas fa-unlock-alt"></i></div>
+          <div className='fence'><i class="fas fa-unlock-alt"></i></div> */}
         </div>
       </div>
     );
