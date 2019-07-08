@@ -13,6 +13,11 @@ class App extends Component  {
     }
   }
 
+  componentDidMount = () => {
+    this.generateColors();
+  }
+
+
   generateColors = () => {
     let fiveColors = []
     for (let i=0; i < 5; i++) {
