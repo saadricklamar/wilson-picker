@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, animateScroll as scroll } from "react-scroll";
 import './Projects.scss';
 
 class Projects extends Component {
@@ -39,7 +40,13 @@ class Projects extends Component {
                     {this.state.projects.length ? this.state.projects.map(project => {
                         return( <article>
                                     <h3> {project.title}</h3>
-                                    <button><i class="fas fa-plus"></i></button>
+                                    <Link
+                                        to='App'
+                                        smooth={true}
+                                        duration= {10}
+                                    >
+                                        <button><i class="fas fa-plus"></i></button>
+                                    </Link> 
                                 </article>)
                     }) : null }
                 </main>
