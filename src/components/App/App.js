@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Projects from '../Projects/Projects'
+import { Link, animateScroll as scroll } from "react-scroll";
 import './App.scss';
 
 
@@ -11,12 +13,12 @@ class App extends Component  {
   }
 
   generateColors = () => {
-    let sixColors = []
+    let fiveColors = []
     for (let i=0; i < 5; i++) {
       let color = this.generateHex()
-      sixColors.push(color)
+      fiveColors.push(color)
     }
-    this.setState({colors: sixColors})
+    this.setState({colors: fiveColors})
   }
 
 
@@ -37,25 +39,27 @@ class App extends Component  {
         <header>
           <h1>Wilson Picker</h1>
           <nav>
-            <button onClick={() => this.generateColors()}>Generate a Palette</button>
-            <button>Create a Project</button>
+            <button className='home-button' onClick={() => this.generateColors()}>Generate a Palette</button>
+            <Link
+              activeClass='active'
+              to='projects-section'
+              spy={true}
+              smooth={true}
+              duration= {10}
+            >
+            <button className='home-button'>Create a Project</button>
+            </Link>
           </nav>
         </header>
         <div className='fences'>
           {this.state.colors.map(hex => {
-            console.log(typeof hex)
             return (<div key={hex} className='fence' style={{backgroundColor: hex}}><i className="fas fa-unlock-alt"></i></div>)
           })}
-          {/* <div className='fence'><i class="fas fa-unlock-alt"></i></div>
-          <div className='fence'><i class="fas fa-unlock-alt"></i></div>
-          <div className='fence'><i class="fas fa-unlock-alt"></i></div>
-          <div className='fence'><i class="fas fa-unlock-alt"></i></div>
-          <div className='fence'><i class="fas fa-unlock-alt"></i></div> */}
         </div>
+        <Projects/>
       </div>
-    );
+    )
   }
-  
 }
 
 export default App;

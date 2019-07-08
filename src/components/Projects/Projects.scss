@@ -1,0 +1,65 @@
+#projects-section {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background:#F0E2C0
+  }
+
+h2 {
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+h3 {
+    text-align: left;
+    padding: 5px 0 0 10px;
+    margin: 0;
+    
+    // border-bottom: 1px solid black;
+}
+
+article {
+    width: 800px;
+    height: 150px;
+    // background: pink;
+    margin: 20px auto;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+
+    button {
+        border-radius: 50%;
+        font-size: 25px;
+        margin-right: 700px;
+        margin-top: 10px;
+    }
+   
+}
+
+form { 
+    
+   input, button {
+      height: 40px;
+      width: 180px;
+      display: block;
+      margin: 10px auto;
+      font-family: 'Scope One', serif;
+      font-size: 1rem;
+      font-weight: bold; 
+    } 
+
+    input::placeholder {
+      padding-left: 10px;
+    } 
+
+    button {
+       width: 185px;
+       cursor: pointer;
+       background-color: #F1D082;
+       border: 1px solid black;
+       border-radius: 10px;
+       font-size: 1.5rem;
+       &:hover {
+        background-color: #F0E2C0;
+      }   
+   }
+}
