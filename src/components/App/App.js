@@ -9,13 +9,23 @@ class App extends Component  {
     super()
     this.state = {
       colors: [],
-      lockedColors: []
+      lockedColors: [],
+      projects: []
     }
   }
 
   componentDidMount = () => {
     this.generateColors();
+    this.fetchProjects();
   }
+
+  fetchProjects = async () => {
+    const projectURL = 'http://localhost:3001/api/v1/projects';
+    const response = await fetch(projectURL)
+    const projects = await response.json();
+    this.setState({ projects })
+  }
+  
 
 
   generateColors = () => {
@@ -73,6 +83,7 @@ class App extends Component  {
 
 
   render() {
+    console.log(this.state.projects)
     return (
       <div className="App">
         <header>
