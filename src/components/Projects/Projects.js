@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, animateScroll as scroll } from "react-scroll";
+import {uid} from 'react-uid';
 import './Projects.scss';
 
 class Projects extends Component {
@@ -38,14 +39,14 @@ class Projects extends Component {
                 </nav>
                 <main>
                     {this.state.projects.length ? this.state.projects.map(project => {
-                        return( <article>
+                        return( <article key={uid}>
                                     <h3> {project.title}</h3>
                                     <Link
                                         to='App'
                                         smooth={true}
                                         duration= {10}
                                     >
-                                        <button><i class="fas fa-plus"></i></button>
+                                        <button><i className="fas fa-plus"></i></button>
                                     </Link> 
                                 </article>)
                     }) : null }

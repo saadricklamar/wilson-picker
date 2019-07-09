@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Projects from '../Projects/Projects'
 import { Link, animateScroll as scroll } from "react-scroll";
+import {uid} from 'react-uid';
 import './App.scss';
 
 class App extends Component  {
@@ -8,7 +9,6 @@ class App extends Component  {
     super()
     this.state = {
       colors: [],
-      locked: false,
       lockedColors: []
     }
   }
@@ -19,13 +19,31 @@ class App extends Component  {
 
 
   generateColors = () => {
-    let fiveColors = []
-    for (let i=0; i < 5; i++) {
-      let color = this.generateHex()
-      fiveColors.push(color)
+    if(!this.state.colors.length) {
+      let colors = []
+      for (let i = 0; i < 5; i++) {
+        let colorObj = {
+              isLocked: false,
+              id: 0,
+              hex: ''
+              }
+        colorObj.id = uid(i)      
+        colorObj.hex = this.generateHex()
+        colors.push(colorObj)
+      }
+      this.setState({colors})
+    } else {
+      let newColors = this.state.colors.map(color => {
+        if(color.isLocked === false) {
+          color.hex = this.generateHex()
+          return {...color}
+        } else {
+          return {...color}
+        }
+      })
+      this.setState({colors: newColors})
     }
-    this.setState({colors: fiveColors})
-  }
+  };
 
 
   generateHex = ind => {
@@ -38,17 +56,19 @@ class App extends Component  {
    return '#' + color; 
   }
 
-  // lockColor = (index, hex) => {
-  //   console.log(hex)
-  //   let colorIndex = index;
-  //   let lockedColors = [...this.state.lockedColors, colorIndex ]
-  //   this.setState({locked: true})
-  //   this.setState({lockedColors})
-  // }
+  lockColor = (index, hex) => {
+    let lockedColors = []
+    this.state.colors.map(color => {
+      if(color.hex === hex) {
+        color.isLocked = true;
+        lockedColors = [...this.state.lockedColors, hex]
+      }
+    })
+    this.setState({lockedColors})
+  }
 
 
   render() {
-    console.log(this.state.lockedColors)
     return (
       <div className="App">
         <header>
@@ -65,9 +85,9 @@ class App extends Component  {
           </nav>
         </header>
         <div className='fences'>
-          {this.state.colors.map((hex, index) => {
+          {this.state.colors.map((color, index) => {
             return (
-            <div id={index} key={hex} className='fence' style={{backgroundColor: hex}}><i onClick={() => this.lockColor(index, hex)} className={this.state.locked ? `fas fa-lock` : `fas fa-unlock-alt` }></i></div>)
+            <div id={index} key={color.hex} className='fence' style={{backgroundColor: color.hex}}><i onClick={() => this.lockColor(index, color.hex)} className={color.isLocked ? 'fas fa-lock' : 'fas fa-unlock-alt'}></i></div>)
             })}
         </div>
         <Projects/>
