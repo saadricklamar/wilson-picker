@@ -10,13 +10,15 @@ class App extends Component  {
     this.state = {
       colors: [],
       lockedColors: [],
-      projects: []
+      projects: [],
+      palettes: []
     }
   }
 
   componentDidMount = () => {
     this.generateColors();
     this.fetchProjects();
+    this.fetchPalettes();
   }
 
   fetchProjects = async () => {
@@ -25,8 +27,14 @@ class App extends Component  {
     const projects = await response.json();
     this.setState({ projects })
   }
-  
 
+  fetchPalettes = async () => {
+    const paletteURL = 'http://localhost:3001/api/v1/palettes';
+    const response = await fetch(paletteURL)
+    const palettes = await response.json();
+    this.setState({ palettes })
+  }
+  
 
   generateColors = () => {
     if(!this.state.colors.length) {
@@ -83,7 +91,7 @@ class App extends Component  {
 
 
   render() {
-    console.log(this.state.projects)
+    console.log(this.state.palettes)
     return (
       <div className="App">
         <header>
