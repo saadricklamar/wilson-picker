@@ -36,7 +36,6 @@ article {
 }
 
 form { 
-    
    input, button {
       height: 40px;
       width: 180px;
@@ -62,4 +61,8 @@ form {
         background-color: #F0E2C0;
       }   
    }
+}
+
+.fa-plus {
+  cursor: pointer;
 }
