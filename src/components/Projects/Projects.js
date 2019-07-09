@@ -5,8 +5,8 @@ import { postNewProject }from '../../Util/apiCalls';
 import './Projects.scss';
 
 class Projects extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
           projects: [],
           title: ''
@@ -28,7 +28,6 @@ class Projects extends Component {
         postNewProject(newProject);
     }
 
-
     render() {
         return (
             <div id='projects-section'>
@@ -48,10 +47,22 @@ class Projects extends Component {
                                         smooth={true}
                                         duration= {10}
                                     >
-                                        <button><i className="fas fa-plus"></i></button>
+                                        <div><button><i className="fas fa-plus" onClick={() => this.props.grabId(project.id)}></i></button> Add a palette...</div>
                                     </Link> 
                                 </article>)
                     }) : null }
+                    {this.props.projects.map(project => {
+                        return( <article key={uid}>
+                                    <h3> {project.project_name}</h3>
+                                    <Link
+                                        to='App'
+                                        smooth={true}
+                                        duration= {10}
+                                    >
+                                        <button><i className="fas fa-plus" onClick={() => this.props.grabId(project.id)}></i></button>
+                                    </Link> 
+                                </article>)
+                    })}
                 </main>
             </div>
         )

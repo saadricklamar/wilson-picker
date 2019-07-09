@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Projects from '../Projects/Projects'
 import { Link, animateScroll as scroll } from "react-scroll";
+import { postNewPalette }from '../../Util/apiCalls';
 import {uid} from 'react-uid';
 import './App.scss';
 
@@ -11,7 +12,8 @@ class App extends Component  {
       colors: [],
       lockedColors: [],
       projects: [],
-      palettes: []
+      palettes: [],
+      projectID: 0
     }
   }
 
@@ -89,9 +91,27 @@ class App extends Component  {
     this.setState({lockedColors})
   }
 
+  addPalette = () => {
+    let newPalette = this.state.colors.reduce((obj, color, index) => {
+      obj.palette_name = 'Hello moto';
+      obj.project_id = this.state.projectID
+      if(!obj[`color_${index+1}`]) {
+        obj[`color_${index+1}`] = color.hex
+      }
+      return obj
+    }, {})
+    console.log(newPalette)
+    postNewPalette(newPalette);
+  }
+
+
+  grabProjectId = (id) => {
+    this.setState({projectID: id})
+  }
+
 
   render() {
-    console.log(this.state.projects)
+    console.log(this.state.projectID)
     return (
       <div className="App">
         <header>
@@ -105,6 +125,13 @@ class App extends Component  {
             >
             <button className='home-button'>Create a Project</button>
             </Link>
+            <Link
+              to='projects-section'
+              smooth={true}
+              duration= {10}
+            >
+            <button className='home-button' onClick={() => this.addPalette()}>Save Palette</button>
+            </Link>
           </nav>
         </header>
         <div className='fences'>
@@ -113,7 +140,7 @@ class App extends Component  {
             <div id={index} key={color.hex} className='fence' style={{backgroundColor: color.hex}}><i onClick={() => this.lockColor(index, color.hex)} className={color.isLocked ? 'fas fa-lock' : 'fas fa-unlock-alt'}></i></div>)
             })}
         </div>
-        <Projects/>
+        <Projects projects={this.state.projects} grabId={this.grabProjectId}/>
       </div>
     )
   }
