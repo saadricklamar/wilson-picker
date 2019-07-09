@@ -59,7 +59,11 @@ class App extends Component  {
   lockColor = (index, hex) => {
     let lockedColors = []
     this.state.colors.map(color => {
-      if(color.hex === hex) {
+      if (color.hex === hex && color.isLocked === true) {
+        color.isLocked = false;
+        return;
+      }
+      if(color.hex === hex && color.isLocked === false) {
         color.isLocked = true;
         lockedColors = [...this.state.lockedColors, hex]
       }
