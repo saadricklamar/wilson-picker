@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, animateScroll as scroll } from "react-scroll";
 import {uid} from 'react-uid';
+import { postNewProject }from '../../Util/apiCalls';
 import './Projects.scss';
 
 class Projects extends Component {
@@ -20,10 +21,11 @@ class Projects extends Component {
     generateProject = e => {
         e.preventDefault();
         let newProject = {}
-        newProject.title = this.state.title
+        newProject.project_name = this.state.title
         let projects = [...this.state.projects, newProject]
         this.setState({projects})
         this.refs.title.value = '';
+        postNewProject(newProject);
     }
 
 
@@ -40,7 +42,7 @@ class Projects extends Component {
                 <main>
                     {this.state.projects.length ? this.state.projects.map(project => {
                         return( <article key={uid}>
-                                    <h3> {project.title}</h3>
+                                    <h3> {project.project_name}</h3>
                                     <Link
                                         to='App'
                                         smooth={true}

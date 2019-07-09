@@ -91,7 +91,7 @@ class App extends Component  {
 
 
   render() {
-    console.log(this.state.palettes)
+    console.log(this.state.projects)
     return (
       <div className="App">
         <header>
