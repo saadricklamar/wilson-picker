@@ -37,3 +37,20 @@ export const postNewProject = async (project) => {
       return error;
     }
   }
+
+
+  export const deleteProject = async (id)=>{
+    try{
+        const url = `http://localhost:3001/api/v1/projects/${id}`;
+        const response = await fetch(url, {
+            method: 'DELETE'
+        })
+        if(!response.ok){
+            throw Error (response.statusText)
+        }
+        return response;
+    } catch (error) {
+        return error
+    }
+   
+}

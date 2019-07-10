@@ -11,33 +11,15 @@ class App extends Component  {
     this.state = {
       colors: [],
       lockedColors: [],
-      projects: [],
-      palettes: [],
       projectID: 0
     }
   }
 
   componentDidMount = () => {
     this.generateColors();
-    this.fetchProjects();
-    this.fetchPalettes();
-  }
-
-  fetchProjects = async () => {
-    const projectURL = 'http://localhost:3001/api/v1/projects';
-    const response = await fetch(projectURL)
-    const projects = await response.json();
-    this.setState({ projects })
-  }
-
-  fetchPalettes = async () => {
-    const paletteURL = 'http://localhost:3001/api/v1/palettes';
-    const response = await fetch(paletteURL)
-    const palettes = await response.json();
-    this.setState({ palettes })
+    
   }
   
-
   generateColors = () => {
     if(!this.state.colors.length) {
       let colors = []
@@ -91,46 +73,22 @@ class App extends Component  {
     this.setState({lockedColors})
   }
 
-  addPalette = () => {
-    let newPalette = this.state.colors.reduce((obj, color, index) => {
-      obj.palette_name = 'Hello moto';
-      obj.project_id = this.state.projectID
-      if(!obj[`color_${index+1}`]) {
-        obj[`color_${index+1}`] = color.hex
-      }
-      return obj
-    }, {})
-    console.log(newPalette)
-    postNewPalette(newPalette);
-  }
-
-
-  grabProjectId = (id) => {
-    this.setState({projectID: id})
-  }
 
 
   render() {
-    console.log(this.state.projectID)
+ 
     return (
       <div className="App">
         <header>
           <h1>Wilson Picker</h1>
           <nav>
-            <button className='home-button' onClick={() => this.generateColors()}>Generate a Palette</button>
+            <div className='home-buttons' onClick={() => this.generateColors()}>Generate A Palette</div>
             <Link
               to='projects-section'
               smooth={true}
               duration= {10}
             >
-            <button className='home-button'>Create a Project</button>
-            </Link>
-            <Link
-              to='projects-section'
-              smooth={true}
-              duration= {10}
-            >
-            <button className='home-button' onClick={() => this.addPalette()}>Save Palette</button>
+            <div className='home-buttons'>Create A Project</div>
             </Link>
           </nav>
         </header>
@@ -140,10 +98,11 @@ class App extends Component  {
             <div id={index} key={color.hex} className='fence' style={{backgroundColor: color.hex}}><i onClick={() => this.lockColor(index, color.hex)} className={color.isLocked ? 'fas fa-lock' : 'fas fa-unlock-alt'}></i></div>)
             })}
         </div>
-        <Projects projects={this.state.projects} grabId={this.grabProjectId}/>
+        <Projects colors={this.state.colors}/>
       </div>
     )
   }
+  // grabId={this.grabProjectId}
 }
 
 export default App;

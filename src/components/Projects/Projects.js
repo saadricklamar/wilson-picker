@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, animateScroll as scroll } from "react-scroll";
 import {uid} from 'react-uid';
-import { postNewProject }from '../../Util/apiCalls';
+import { postNewProject, deleteProject, postNewPalette }from '../../Util/apiCalls';
 import './Projects.scss';
 
 class Projects extends Component {
@@ -9,13 +9,35 @@ class Projects extends Component {
         super(props)
         this.state = {
           projects: [],
-          title: ''
+          palettes: [],
+          title: '',
+          paletteName: '',
+          projectID: ''
         }
     }
 
-    handleTitleChange = e => {
-        const {value}  = e.target;
-        this.setState({title: value})
+    componentDidMount = () => {
+        this.fetchProjects();
+        this.fetchPalettes();
+    }
+
+    fetchProjects = async () => {
+        const projectURL = 'http://localhost:3001/api/v1/projects';
+        const response = await fetch(projectURL)
+        const projects = await response.json();
+        this.setState({ projects })
+    } 
+
+    fetchPalettes = async () => {
+        const paletteURL = 'http://localhost:3001/api/v1/palettes';
+        const response = await fetch(paletteURL)
+        const palettes = await response.json();
+        this.setState({ palettes })
+    }
+
+    handleChange = e => {
+        const {name, value}  = e.target;
+        this.setState({[name]: value})
     }
 
     generateProject = e => {
@@ -28,40 +50,49 @@ class Projects extends Component {
         postNewProject(newProject);
     }
 
+    deleteAProject = (id) => {
+        deleteProject(id);
+        let withoutDeleted = this.state.projects.filter(proj=> {
+          return proj.id !== id
+        })
+        this.setState({projects: withoutDeleted})
+      }
+
+      
+    addPalette = (id) => {
+        let newPalette = this.props.colors.reduce((obj, color, index) => {
+          obj.palette_name = this.state.paletteName;
+          obj.project_id = id;
+          if(!obj[`color_${index+1}`]) {
+            obj[`color_${index+1}`] = color.hex
+          }
+          return obj
+        }, {})
+        postNewPalette(newPalette);
+      }
+    
+
     render() {
+        console.log(this.state.paletteName)
         return (
             <div id='projects-section'>
                 <nav>
                 <h2>Name Your Project</h2>
                 <form onSubmit={this.generateProject}>
-                    <input ref ='title' name='title' type='text' onChange={this.handleTitleChange} placeholder='Project Title...'/>
-                    <button>Save</button>
+                    <input ref ='title' name='title' type='text' onChange={this.handleChange} placeholder='Project Title...'/>
+                    <button className='save-project'>Save</button>
                 </form>
                 </nav>
                 <main>
-                    {this.state.projects.length ? this.state.projects.map(project => {
-                        return( <article key={uid}>
+                    {this.state.projects.map(project => { 
+                        return( <article key={project.id}>
                                     <h3> {project.project_name}</h3>
-                                    <Link
-                                        to='App'
-                                        smooth={true}
-                                        duration= {10}
-                                    >
-                                        <div><button><i className="fas fa-plus" onClick={() => this.props.grabId(project.id)}></i></button> Add a palette...</div>
-                                    </Link> 
-                                </article>)
-                    }) : null }
-                    {this.props.projects.map(project => {
-                        return( <article key={uid}>
-                                    <h3> {project.project_name}</h3>
-                                    <Link
-                                        to='App'
-                                        smooth={true}
-                                        duration= {10}
-                                    >
-                                        <button><i className="fas fa-plus" onClick={() => this.props.grabId(project.id)}></i></button>
-                                    </Link> 
-                                </article>)
+                                    <section className='palette-form'>
+                                        <input name='paletteName' onChange={this.handleChange} placeHolder='Add A Palette Name...'/>
+                                        <button onClick={() => this.addPalette(project.id)}>Save Palette</button>
+                                    </section>
+                                    <i className="fas fa-trash" onClick={()=> this.deleteAProject(project.id)}></i>
+                                </article>)       
                     })}
                 </main>
             </div>

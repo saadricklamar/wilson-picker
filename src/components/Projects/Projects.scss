@@ -2,7 +2,11 @@
     text-align: center;
     height: 100%;
     width: 100%;
-    background:#F0E2C0
+    background:#F0E2C0;
+  }
+
+  main {
+    background: #F0E2C0;
   }
 
 h2 {
@@ -14,19 +18,16 @@ h3 {
     text-align: left;
     padding: 5px 0 0 10px;
     margin: 0;
-    
-    // border-bottom: 1px solid black;
 }
 
 article {
     width: 800px;
     height: 150px;
-    // background: pink;
     margin: 20px auto;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
 
-    button {
+    .save-project {
         border-radius: 50%;
         font-size: 25px;
         margin-right: 700px;
@@ -36,7 +37,7 @@ article {
 }
 
 form { 
-   input, button {
+   input, .save-project {
       height: 40px;
       width: 180px;
       display: block;
@@ -50,7 +51,7 @@ form {
       padding-left: 10px;
     } 
 
-    button {
+    .save-project {
        width: 185px;
        cursor: pointer;
        background-color: #F1D082;
@@ -63,6 +64,14 @@ form {
    }
 }
 
-.fa-plus {
+.fa-trash {
   cursor: pointer;
+  float: right;
+  margin-top: 70px;
+}
+
+
+.palette-form {
+  display: flex;
+
 }
