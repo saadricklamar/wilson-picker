@@ -16,27 +16,21 @@ header {
   justify-content: space-between;
 
   h1 {
-    padding: 60px;
     font-weight: normal;
     font-size: 4.5rem;
    
   }
  
-  .home-button {
-    display: block;
-    height: 70px;
-    width: 220px;
+  .home-buttons {
+    display: inline-block;
     font-size: 1.5rem;
-    margin: 50px;
+    margin: 10px;
     font-family: 'Scope One', serif;
     cursor: pointer;
     font-weight: bold;
-    border-radius: 10px;
-    background-color: #F1D082;
-    border: 1px solid black;
 
     &:hover {
-      background-color: #F0E2C0;
+      color: blue;
     }
   } 
 }
@@ -45,18 +39,18 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 2.5%;
   margin-right: 2%;
 }
+
 .fence {
-  height: 875px;
-  width: 96px;
-  margin: 8px 8px 0 8px;
+  height: 650px;
+  width: 6%;
+  margin: 0 8px 0 8px;
   border-radius: 10px;
 }
 
 .fa-unlock-alt, .fa-lock {
-  margin-top: 700px;
+  margin-top: 400px;
   font-size: 30px;
   cursor: pointer;
 }
