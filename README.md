@@ -193,6 +193,30 @@ A correctly formatted palette object must be provided in the request body in ord
        project_id: 7
      }
 
+## DELETE /api/v1/projects/:id
+
+Making an API call to this endpoint deletes a project with the specified id. 
+
+#### Required:
+
+An id that corresponds to a project present in the database must be provided in the URL.
+
+URL with specified id:
+
+`localhost:3001/api/v1/projects/23`
+
+#### Possible Responses
+
+If project not found: 
+
+     {
+        "error": "This palette does not exist. Nothing was deleted."
+      }
+
+If project is found: 
+
+        The palette was deleted.
+        
 ## Demo
 
 ![2019-07-11 10 39 03](https://user-images.githubusercontent.com/42000931/61068847-389b4f80-a3c8-11e9-831e-0272c0c2c2bb.gif)
