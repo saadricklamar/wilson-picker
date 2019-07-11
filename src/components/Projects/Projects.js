@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link, animateScroll as scroll } from "react-scroll";
 import {uid} from 'react-uid';
 import { postNewProject, deleteProject, postNewPalette }from '../../Util/apiCalls';
 import Project from '../Project/Project';
@@ -74,7 +73,6 @@ class Projects extends Component {
     
 
     render() {
-        console.log(this.state.paletteName)
         return (
             <div id='projects-section'>
                 <nav>

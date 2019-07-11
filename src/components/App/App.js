@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Projects from '../Projects/Projects'
 import { Link, animateScroll as scroll } from "react-scroll";
-import { postNewPalette }from '../../Util/apiCalls';
 import {uid} from 'react-uid';
 import './App.scss';
 
