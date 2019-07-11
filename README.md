@@ -99,15 +99,9 @@ A correctly formatted palette object must be provided in the request body in ord
        project_id: 7
      }
 
-
-## HomeScreen
-
-![WilsonHome](https://user-images.githubusercontent.com/42000931/61068023-2fa97e80-a3c6-11e9-8790-ae055ff0eb13.png)
-
-
 ## Demo
 
-Coming soon..
+![2019-07-11 10 39 03](https://user-images.githubusercontent.com/42000931/61068847-389b4f80-a3c8-11e9-831e-0272c0c2c2bb.gif)
 
 ## Wireframe 
 
