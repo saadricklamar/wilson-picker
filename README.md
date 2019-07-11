@@ -69,6 +69,84 @@ Data returned for each project includes:
         "updated_at": "2019-07-10T21:36:48.909Z"
     }
     
+
+## GET: /api/v1/palettes
+
+Making an API call to this endpoint returns all palettes.
+
+Data returned for each palette includes:
+
+* palette_name
+* id
+* color_1
+* color_2
+* color_3
+* color_4
+* color_5
+* project_id
+* creation timestamp
+* update timestamp
+
+#### Example of returned JSON:
+
+    [
+        {
+            "id": 31,
+            "palette_name": "ad",
+            "color_1": "#60AE12",
+            "color_2": "#64E3B2",
+            "color_3": "#C4B69D",
+            "color_4": "#6E9701",
+            "color_5": "#DF57BA",
+            "project_id": 113,
+            "created_at": "2019-07-11T16:44:03.593Z",
+            "updated_at": "2019-07-11T16:44:03.593Z"
+        },
+        {
+            "id": 32,
+            "palette_name": "asd",
+            "color_1": "#16308B",
+            "color_2": "#AB01E6",
+            "color_3": "#0A75E1",
+            "color_4": "#72D9C8",
+            "color_5": "#05AD19",
+            "project_id": 116,
+            "created_at": "2019-07-11T16:44:28.994Z",
+            "updated_at": "2019-07-11T16:44:28.994Z"
+        }
+    ]
+
+## GET: /api/v1/palettes/:id
+
+Making an API call to this endpoint returns a palette of the specified id.
+
+Data returned for each palette includes:
+
+* palette_name
+* id
+* color_1
+* color_2
+* color_3
+* color_4
+* color_5
+* project_id
+* creation timestamp
+* update timestamp
+
+#### Example of returned JSON:
+
+    {
+        "id": 31,
+        "palette_name": "ad",
+        "color_1": "#60AE12",
+        "color_2": "#64E3B2",
+        "color_3": "#C4B69D",
+        "color_4": "#6E9701",
+        "color_5": "#DF57BA",
+        "project_id": 113,
+        "created_at": "2019-07-11T16:44:03.593Z",
+        "updated_at": "2019-07-11T16:44:03.593Z"
+    }
     
   
 ## POST: /api/v1/projects
