@@ -2,11 +2,16 @@
     text-align: center;
     height: 100%;
     width: 100%;
-    background:#F0E2C0;
+    background: #EFEFBB;  
+    background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB); 
+    background: linear-gradient(to right, #D4D3DD, #EFEFBB);
+
   }
 
   main {
-    background: #F0E2C0;
+    background: #EFEFBB; 
+    background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);  
+    background: linear-gradient(to right, #D4D3DD, #EFEFBB); 
   }
 
 h2 {
@@ -25,7 +30,7 @@ article {
     height: 150px;
     margin: 20px auto;
     border-top: 2px solid black;
-    border-bottom: 2px solid black;
+  
 
     .save-project {
         border-radius: 50%;
@@ -54,7 +59,7 @@ form {
     .save-project {
        width: 185px;
        cursor: pointer;
-       background-color: #F1D082;
+       background-color: rgb(130, 241, 148);
        border: 1px solid black;
        border-radius: 10px;
        font-size: 1.5rem;

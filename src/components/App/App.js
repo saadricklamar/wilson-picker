@@ -17,7 +17,6 @@ class App extends Component  {
 
   componentDidMount = () => {
     this.generateColors();
-    
   }
   
   generateColors = () => {
@@ -102,7 +101,6 @@ class App extends Component  {
       </div>
     )
   }
-  // grabId={this.grabProjectId}
 }
 
 export default App;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, animateScroll as scroll } from "react-scroll";
 import {uid} from 'react-uid';
 import { postNewProject, deleteProject, postNewPalette }from '../../Util/apiCalls';
+import Project from '../Project/Project';
 import './Projects.scss';
 
 class Projects extends Component {
@@ -92,6 +93,7 @@ class Projects extends Component {
                                         <button onClick={() => this.addPalette(project.id)}>Save Palette</button>
                                     </section>
                                     <i className="fas fa-trash" onClick={()=> this.deleteAProject(project.id)}></i>
+                                    <Project projects={this.state.projects} palettes={this.state.palettes}/>
                                 </article>)       
                     })}
                 </main>
