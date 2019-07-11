@@ -1,5 +1,6 @@
 # Wilson Picker 
-## Based off of the 90's show, 'Home Improvement, this app allows users to generate, customize, and save color palettes. 
+
+Based off of the 90's show, 'Home Improvement, this app allows users to generate, customize, and save color palettes. 
 
 
 ## Installation for Backend 
@@ -15,7 +16,7 @@
 
 ## About 
 
-## Building this app was a 10 day project at the Turing School of Software & Design.The project allows users to create custom palettes and save them in specified project folders. While selecting a palette, the user has the ability to freeze a color and continue searching through other colors. 
+Building this app was a 10 day project at the Turing School of Software & Design.The project allows users to create custom palettes and save them in specified project folders. While selecting a palette, the user has the ability to freeze a color and continue searching through other colors. 
 
 ## Possible Endpoints
 ### GET
@@ -68,9 +69,14 @@
 * project_name
 
 
+## HomeScreen
+
+![WilsonHome](https://user-images.githubusercontent.com/42000931/61068023-2fa97e80-a3c6-11e9-8790-ae055ff0eb13.png)
 
 
+## Demo
 
+Coming soon..
 
 ## Wireframe 
 
@@ -82,12 +88,6 @@
 * Jest/Enzyme
 * Node.js
 * TravisCI
-
-## HomeScreen
-<img width="1208" alt="Screen Shot 2019-07-11 at 7 47 39 AM" src="https://user-images.githubusercontent.com/40923979/61056326-607eb900-a3b0-11e9-8a50-4f817b913932.png">
-
-## Add a Palette
-<img width="1208" alt="Screen Shot 2019-07-11 at 7 48 24 AM" src="https://user-images.githubusercontent.com/40923979/61056410-886e1c80-a3b0-11e9-85fb-9f87125251ef.png">
 
 ### Contributors 
 #### Saad Baradan
