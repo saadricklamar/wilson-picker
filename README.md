@@ -13,6 +13,10 @@
 * Dependencies: npm install 
 * Run npm start and go to localhost:3001 in your browser
 
+## About 
+
+## Building this app was a 10 day project at the Turing School of Software & Design.The project allows users to create custom palettes and save them in specified project folders. While selecting a palette, the user has the ability to freeze a color and continue searching through other colors. 
+
 ## Wireframe 
 
 <img width="616" alt="Wilson Picker" src="https://user-images.githubusercontent.com/42000931/60467140-f711e400-9c12-11e9-82d0-77f9a693cbae.png">
