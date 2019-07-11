@@ -27,6 +27,7 @@
 ## GET: /api/v1/projects
 
 #### Example: You will get an array of objects 
+
 [
     {
         "id": 29,
