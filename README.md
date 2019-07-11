@@ -64,8 +64,8 @@
 ## POST: /api/v1/projects
 ### Add an individual project 
 
-### Required body
-### project_name
+#### Required body
+* project_name
 
 
 
