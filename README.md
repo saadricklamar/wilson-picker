@@ -16,14 +16,9 @@ Based off of the 90's show, 'Home Improvement, this app allows users to generate
 
 ## About 
 
-Building this app was a 10 day project at the Turing School of Software & Design.The project allows users to create custom palettes and save them in specified project folders. While selecting a palette, the user has the ability to freeze a color and continue searching through other colors. 
+Building this app was a 10 day project at the Turing School of Software & Design. The project allows users to create custom palettes and save them in specified project folders. While selecting a palette, the user has the ability to freeze a color and continue searching through other colors. 
 
 ## Possible Endpoints
-### GET
-### POST
-### DELETE 
-
-
 
 ## GET: /api/v1/projects
 
@@ -45,8 +40,6 @@ Building this app was a 10 day project at the Turing School of Software & Design
     ]
 
 
-
-
 ## GET: /api/v1/projects/:id
 
 ### Grab individual project 
@@ -63,10 +56,48 @@ Building this app was a 10 day project at the Turing School of Software & Design
     
   
 ## POST: /api/v1/projects
-### Add an individual project 
 
-#### Required body
-* project_name
+Making an API call to this endpoint adds a project to the projects database.
+
+#### Required:
+
+A correctly formatted project object must be provided in the request body in order to post to the database.
+
+#### Example of correctly formatted project object:
+
+`{ project_name: <STRING>  }`
+
+`{ project_name: "Fall Colors }`
+
+## POST: /api/v1/palettes
+
+Making an API call to this endpoint adds a palette to the palettes database.
+
+#### Required:
+
+A correctly formatted palette object must be provided in the request body in order to post to the database.
+
+#### Example of correctly formatted palette object:
+
+     { 
+       palette_name: <STRING>,
+       color_1: <STRING>,
+       color_2: <STRING>,
+       color_3: <STRING>,
+       color_4: <STRING>,
+       color_5: <STRING>,
+       project_id: <INTEGER> 
+     }
+
+    { 
+       palette_name: "Spring Colors",
+       color_1: "#324DBF",
+       color_2: "#I898BC",
+       color_3: "#A8D8BF",
+       color_4: "#B78DEH",
+       color_5: "#678A56",
+       project_id: 7
+     }
 
 
 ## HomeScreen
