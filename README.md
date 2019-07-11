@@ -22,7 +22,16 @@ Building this app was a 10 day project at the Turing School of Software & Design
 
 ## GET: /api/v1/projects
 
-#### Example: You will get an array of objects 
+Making an API call to this endpoint returns all projects.
+
+Data returned for each project includes:
+
+* project id
+* project name
+* creation timestamp
+* update timestamp
+
+#### Example of returned JSON:
 
     [
         {
@@ -42,9 +51,16 @@ Building this app was a 10 day project at the Turing School of Software & Design
 
 ## GET: /api/v1/projects/:id
 
-### Grab individual project 
+Making an API call to this endpoint returns a project of the specified id.
 
-#### Example: You will get a single JSON object
+Data returned for each project includes:
+
+* project id
+* project name
+* creation timestamp
+* update timestamp
+
+#### Example of returned JSON:
 
     {
         "id": 30,
