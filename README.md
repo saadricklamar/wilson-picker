@@ -1,5 +1,5 @@
 # Wilson Picker 
-## Based off of the 90's show, 'Home Improvment, this app allows users to generate, customize, and save color palettes. 
+## Based off of the 90's show, 'Home Improvement, this app allows users to generate, customize, and save color palettes. 
 
 
 ## Installation for Backend 
@@ -28,20 +28,20 @@
 
 #### Example: You will get an array of objects 
 
-[
-    {
-        "id": 29,
-        "project_name": "robot",
-        "created_at": "2019-07-10T21:35:51.458Z",
-        "updated_at": "2019-07-10T21:35:51.458Z"
-    },
-    {
-        "id": 30,
-        "project_name": "a",
-        "created_at": "2019-07-10T21:36:48.909Z",
-        "updated_at": "2019-07-10T21:36:48.909Z"
-    }
-]
+    [
+        {
+            "id": 29,
+            "project_name": "robot",
+            "created_at": "2019-07-10T21:35:51.458Z",
+            "updated_at": "2019-07-10T21:35:51.458Z"
+        },
+        {
+            "id": 30,
+            "project_name": "a",
+            "created_at": "2019-07-10T21:36:48.909Z",
+            "updated_at": "2019-07-10T21:36:48.909Z"
+        }
+    ]
 
 
 
