@@ -17,6 +17,60 @@
 
 ## Building this app was a 10 day project at the Turing School of Software & Design.The project allows users to create custom palettes and save them in specified project folders. While selecting a palette, the user has the ability to freeze a color and continue searching through other colors. 
 
+## Possible Endpoints
+### GET
+### POST
+### DELETE 
+
+
+
+## GET: /api/v1/projects
+
+#### Example: You will get an array of objects 
+[
+    {
+        "id": 29,
+        "project_name": "robot",
+        "created_at": "2019-07-10T21:35:51.458Z",
+        "updated_at": "2019-07-10T21:35:51.458Z"
+    },
+    {
+        "id": 30,
+        "project_name": "a",
+        "created_at": "2019-07-10T21:36:48.909Z",
+        "updated_at": "2019-07-10T21:36:48.909Z"
+    }
+]
+
+
+
+
+## GET: /api/v1/projects/:id
+
+### Grab individual project 
+
+#### Example: You will get a single JSON object
+
+    {
+        "id": 30,
+        "project_name": "a",
+        "created_at": "2019-07-10T21:36:48.909Z",
+        "updated_at": "2019-07-10T21:36:48.909Z"
+    }
+    
+    
+  
+## POST: /api/v1/projects
+### Add an individual project 
+
+### Required body
+### project_name
+
+
+
+
+
+
 ## Wireframe 
 
 <img width="616" alt="Wilson Picker" src="https://user-images.githubusercontent.com/42000931/60467140-f711e400-9c12-11e9-82d0-77f9a693cbae.png">
